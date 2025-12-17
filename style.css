@@ -1,0 +1,127 @@
+:root{
+  --bg: url("fonts/fondo.jpg"); /* cambia a fondo.png si corresponde */
+  --white: #fff;
+  --muted: rgba(255,255,255,.85);
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --accent: #f36a22;
+  --accent-dark: #d15616;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Poppins", sans-serif;
+  color: var(--white);
+  background:#000;
+}
+
+.bg{
+  position:fixed; inset:0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.55) 65%, rgba(0,0,0,.7) 100%),
+    var(--bg) center/cover no-repeat fixed;
+  z-index:-1;
+}
+
+.wrap{
+  max-width:1200px;
+  margin:0 auto;
+  padding: clamp(16px,3vw,32px);
+  min-height:100svh;
+  display:grid;
+  grid-template-columns:1.15fr 1fr;
+  gap: clamp(24px,4vw,56px);
+  align-items:center;
+}
+
+/* IZQUIERDA */
+.left h1{
+  font-family: "Montserrat", sans-serif;
+  font-weight:800;
+  font-size:clamp(40px,6vw,76px);
+  line-height:0.95;
+  margin:0 0 16px;
+  letter-spacing:.3px;
+  text-shadow: var(--shadow);
+}
+.left p{
+  margin:0 0 24px;
+  max-width:46ch;
+  color: var(--muted);
+  font-weight:400;
+}
+.social{display:flex; gap:12px}
+.social a{
+  width:38px;height:38px;display:grid;place-items:center;
+  border-radius:50%;
+  background:rgba(0,0,0,.35);
+  color:var(--white);
+  text-decoration:none;
+  backdrop-filter:blur(2px);
+  transition:.15s;
+  box-shadow:0 4px 16px rgba(0,0,0,.35);
+}
+.social a:hover{transform:translateY(-2px);background:rgba(0,0,0,.55)}
+
+/* DERECHA */
+.panel h2{
+  margin:0 0 18px;
+  font-weight:700;
+  font-size:clamp(22px,3vw,32px);
+  font-family:"Poppins",sans-serif;
+  text-shadow: var(--shadow);
+}
+label{display:block;font-size:14px;margin:10px 0 6px;color:var(--white)}
+.input{
+  width:100%;height:42px;padding:10px 12px;
+  border-radius:4px;border:none;outline:none;
+  background:var(--white);color:#222;
+  box-shadow:var(--shadow);font-size:15px;
+}
+.row{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:10px}
+.remember{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:14px}
+.btn{
+  border:none;cursor:pointer;
+  background:var(--accent);
+  color:#fff;font-weight:600;
+  padding:11px 18px;border-radius:6px;
+  box-shadow:var(--shadow);
+  transition:.15s;
+}
+.btn:hover{background:var(--accent-dark);transform:translateY(-1px)}
+/* Enlaces normales (Lost your password?) */
+.link {
+  color: var(--white);
+  opacity: .9;
+  text-decoration: none;   /* sin subrayado por defecto */
+}
+.link:hover {
+  opacity: 1;
+  text-decoration: underline; /* solo al pasar el mouse */
+}
+
+/* Enlaces de términos (siempre subrayados) */
+.link-underline {
+  color: var(--white);
+  opacity: .9;
+  text-decoration: underline;          /* subrayado siempre */
+  text-underline-offset: 2px;
+}
+.link-underline:hover {
+  opacity: 1;
+}
+
+.terms {
+  text-align: center;
+}
+
+@media(max-width:900px){
+  .wrap{grid-template-columns:1fr;padding-top:48px;padding-bottom:48px}
+  .left{order:2;text-align:left}
+  .panel{order:1}
+}
+
+
+	
+	
